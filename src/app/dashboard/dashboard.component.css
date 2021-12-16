@@ -1,0 +1,164 @@
+ /*body {
+    margin: 10px;
+  }
+  
+  div.header {
+    background-color: #e4e2e2;
+    padding: 20px;
+    text-align: center;
+  }
+*/
+  
+  /* #card-table {
+    border-collapse: collapse;
+    border: 1.5px solid black;
+    table-layout: auto;
+    width: 50%;
+    padding: 20px;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+  } 
+   
+  th,td {
+    font-weight: bolder;
+    padding: 10px;
+    border: none;
+    text-align: left;
+  }
+  .activate {
+      font-weight: bold;
+      font-size: large;
+      text-align: center;
+      background-color:rgb(4, 163, 4);
+      color: white;
+  }
+  tr:hover {background-color: #ddd;} 
+
+
+  .col-sm-3{
+    border: 1px solid #ccc;
+    background-color: black;
+    height: 550vh;
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    background-color: #111; 
+    overflow-x: hidden; 
+    padding-top: 20px;
+  }
+  .btn{
+    color: black;
+    margin-top: 20px;
+  }
+  .col-sm-9{
+    
+  }
+  .badge{
+    font-size: 20px;
+  }
+  #product-table-header{
+    font-size: 20px;
+    font-weight: bolder;
+  }
+  #products-purchased-table{
+    width: 100%;
+    border-radius: 20px;
+  }
+  #remaining-balance-header{
+    margin-left: 28%;
+  }
+   */
+   #card-table {
+  
+    width: 350px;
+    margin-top: 30px;
+    margin-left: 150px;
+    border: 2px solid #F5F5F5;
+    border-radius: 10px;
+    border-collapse: collapse;
+    background-color: #92a8d1;
+    border: 1.5px;
+    table-layout: auto;
+    width: 50%;
+    padding: 20px;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    font-size: larger;
+    font-family:Cambria,
+  } 
+   
+  th,td {
+    font-weight: bolder;
+    padding: 10px;
+    /* border: none; */
+    text-align: left;
+  }
+  .activate {
+      font-weight: bold;
+      font-size: large;
+      text-align: center;
+      background-color:rgb(4, 163, 4);
+      color: white;
+  }
+  tr:hover {background-color: #cce6ff;} 
+
+
+  .col-sm-3{
+    border: 1px solid #cce6ff;
+    background-color:#cce6ff;
+    height: 100vh;
+    position: fixed;
+  }
+  .btn{
+    color: black;
+    margin-top: 20px;
+  }
+  .col-sm-9{
+    /* width: 40%;
+    border-left: none;
+    display: inline; */
+    margin-left: 25%;
+    height: 650px;
+    width: auto;
+    position: relative;
+    overflow: auto;
+    z-index: 1;
+    background-color: #cce6ff;
+  }
+  .badge{
+    font-size: 18px;
+  }
+  #product-table-header{
+    font-size: 18px;
+    font-weight: bolder;
+  }
+  #products-purchased-table{
+    width: 100%;
+    border-color: black;
+    border: black;
+  }
+  #remaining-balance-header{
+    margin-left: 28%;
+  }
+  #upgrade-button{
+    margin-left: 43%;
+    font-weight: bolder;
+  }
+  #show-products{
+    font-size: 20px;
+    text-align: center;
+    color: black;
+    text-decoration: none;
+  }
+  .fas{
+    color: black;
+    font-size: 25px;
+    text-align: justify;
+  }
+  #welcome{
+    text-align: center;
+  }

@@ -1,0 +1,139 @@
+<section>
+    <div class="container-fluid">
+     <div class="row">
+        <div class="col-sm-3">
+            <div class="btn-group-lg list-group">
+                <button type="button" class="btn btn-secondary btn-lg list-group-item" (click)="changeShowStatus()"><i class="fas fa-id-card"></i>EMI-CARD DETAILS</button>
+                <button type="button" class="btn btn-secondary btn-lg list-group-item" (click)="changeShowStatus2()"><i class="fas fa-shopping-bag"></i>PRODUCTS PURCHASED</button>
+                <button type="button" class="btn btn-secondary btn-lg list-group-item" (click)="changeShowStatus3()"><i class="fas fa-money-check-alt"></i>INSTALLMENTS HISTORY</button>
+                <button id="show-products-section"  type="button" class="btn btn-secondary btn-lg list-group-item" ><i class="fas fa-shopping-cart"></i><a id="show-products" [routerLink]="'/product'">SHOW PRODUCTS</a></button>
+                <br>
+            </div>
+        </div>
+         <div class="col-sm-9"  *ngIf="showHide" > 
+             <div class="jumbotron">
+                 <table id="card-table" class="table table-borderless">
+                <tr>
+                    <th>
+                        CARD NUMBER :
+                    </th>
+                    <td>
+                        {{card.cardNo}}
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        NAME :
+                    </th>
+                    <td>
+                        {{card.registration.name}}
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        VALID TILL : MM/YYYY
+                    </th>
+                    <td>
+                        {{card.validityOfCard[5]}}{{card.validityOfCard[6]}}/{{card.validityOfCard[2]}}{{card.validityOfCard[3]}}
+                    </td>
+                </tr>
+        
+                <tr>
+                    <th>
+                        CARD TYPE : GOLD/PLATINUM
+                    </th>
+                    <td>
+                        {{card.cardType}}
+                    </td>
+                </tr>
+                <tr >
+                    <td class="activate" colspan="2"> ACTIVATED </td>
+                </tr>
+            </table>
+            <h3 id="remaining-balance-header">Remaining Balance : Rs : {{card.balance | number:'.2-2'}}</h3>
+            <br>
+            <br>
+        </div>
+        </div> 
+
+
+        <div class="col-sm-9" *ngIf="showHide4">
+          <div class="jumbotron" id="welcome">
+            <h1>Welcome to Dashboard {{card.registration.name}}!!!</h1>
+          </div>
+        </div>
+
+         <div class="col-sm-9" *ngIf="showHide2"> 
+            <div class="jumbotron" >
+            <table id="products-purchased-table" class="table-bordered">
+                <thead>
+                  <tr>
+                    <th id="product-table-header">ProductName</th>
+                    <th id="product-table-header">Date of Purchase</th>
+                    <th id="product-table-header">Price</th>
+                    <th id="product-table-header">Tenure Period Opted</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor = "let purchase of purchases">
+                    <td><span class="badge badge-success">{{purchase.product.productName}}</span></td>
+                    <td><span class="badge badge-secondary">{{purchase.dateOfPurchase}}</span></td>
+                    <td><span class="badge badge-secondary">Rs. {{purchase.product.productPrice}}</span></td>
+                    <td><span class="badge badge-secondary">{{purchase.tenurePeriodOpted}}</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div >
+           </div> 
+        </div>
+          <div class="col-sm-9" *ngIf="showHide3"> 
+              <div *ngFor="let purchase of purchases">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="media border p-3">
+                          <div class="media-body">
+                              <h5>Product : <span class="badge badge-primary">{{purchase.product.productName}}</span></h5>
+                              <h5>Purchase Date  : <span class="badge badge-primary">{{purchase.dateOfPurchase}}</span></h5>
+                          </div>
+                        </div> 
+                    </div>
+                    <div class="card-body">
+                      <div *ngIf ="!purchase.remainingAmount" style="color: green; font-size: larger;" >
+                          <div class="alert alert-success">
+                              <h6>Fully Paid</h6>
+                          </div>
+                        </div>
+  
+                       <div *ngIf ="purchase.remainingAmount" style="color: red; font-size: larger;">
+                          <table class="table table-hover .table-borderless">
+                              <thead>
+                                <tr>
+                                  <th>Amount paid</th>
+                                  <th>Installments paid </th>
+                                  <th>Amount Remaining to be paid</th>
+                                  <th>Installments Remaining </th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>Rs. {{purchase.product.productPrice - purchase.remainingAmount | number:'.2-2'}} &nbsp; &nbsp;</td>
+                                  <td>{{purchase.tenurePeriodOpted - purchase.installmentsRemaining}}</td>
+                                  <td> Rs. {{purchase.remainingAmount | number:'.2-2'}} &nbsp; &nbsp;</td>
+                                  <td>{{purchase.installmentsRemaining}}</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                       </div>
+                    </div>
+                    <div class="card-footer">
+                        <app-installment-list [purchaseId]="purchase.id" > </app-installment-list>
+                     </div>
+              </div>
+              <br>
+              <br>
+          </div>    
+        </div>
+     </div>
+    </div>
+</section>

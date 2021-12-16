@@ -1,0 +1,81 @@
+<div>
+  <a [routerLink]="'/product'">Back to Products List</a>
+</div>
+
+<!-- =========================================== -->
+
+<!-- <h1 id="heading">PRODUCT DETAILS</h1> -->
+
+<!-- =========================================== -->
+<!-- <div class="product-info">
+    <div >
+      <a href="default.asp">
+        <img src="https://tse4.mm.bing.net/th?id=OIP.KHFPCjgZeQSpT-Rsq0KWVQHaGk&pid=Api&P=0&w=174&h=156" >   
+      </a>   
+    </div>
+    <div id="product-details">
+      <label id="name-label"for="">PRODUCT NAME :</label><b>{{product.productName}}</b><br>
+      <br>
+      <br>
+      <label id="details-label"for="">PRODUCT DETAILS :</label><b>{{product.productDetails}}</b><br>
+      <br>
+      <br>
+      <label id="details-label"for="">PRODUCT PRICE :</label><b> {{product.productPrice}} Rs.</b><br>
+      <br>
+      <br>
+      <label id="emi"for="">EMI PERIOD :</label>
+      <p id="tenure-period">{{product.maxTenure}}</p>
+      <br>
+      <h3>EMI STARTING FROM 6000pm</h3>
+      <b id="tenureselection">Select tenure period:</b>
+      <select name="tenureperiodopted" [(ngModel)] = "tenure">
+        <option value="" *ngFor="let n of numbers" required [ngValue] = "n">{{n}}</option>
+      </select>
+      <br>
+      <button id="btn" *ngIf="!product.quantity" disabled> BUY NOW</button>
+      <button id="btn" *ngIf="product.quantity" (click) = "proceedToPayment()"> BUY NOW</button> &nbsp; &nbsp; {{message}} &nbsp; &nbsp; {{status}}
+      <br>
+      <br>
+
+      <a [routerLink]="'/termsandcondition'">Terms and Condition</a>
+      
+      <br>
+      
+      <app-product-review></app-product-review>
+    </div>
+</div> -->
+<section>
+  <div class="container-fluid">
+    <div class="row">
+     <div class="col-sm-4">
+      <img id="product-image" src={{product.productImage}} class="rounded" alt="Cinque Terre">
+     </div>
+     <div class="col-sm-8">
+      <div id="details-card" class="card bg-light">
+        <div class="card-body">
+          <ul>
+            <li><h3><span class="badge badge-info">{{product.productName}}</span></h3></li>
+            <li><h3><span id="details-badge" class="badge  badge-info">{{product.productDetails}}</span></h3></li>
+            <li><h3><span class="badge badge-info"> Rs. {{product.productPrice}}</span></h3></li>
+            <li><h3><span class="badge badge-info">EMI PERIOD OFFERED : {{product.maxTenure}}</span></h3></li>
+            <li><h3><span class="badge badge-info">EMI STARTING FROM: 6000 Per Month</span></h3></li>
+            <li><h4>Select Tenure Period</h4>
+              <select class="custom-select" [(ngModel)] = "tenure" >
+                <option *ngFor="let n of numbers" [ngValue] = "n">{{n}}</option>
+              </select>
+            </li>
+          </ul>
+          <button id="buy-now-button" class="btn btn-success" *ngIf="!product.quantity" disabled> BUY NOW</button>
+          <button id="buy-now-button" class="btn btn-success" *ngIf="product.quantity" (click) = "proceedToPayment()"> BUY NOW</button> &nbsp; &nbsp; {{message}} &nbsp; &nbsp; {{status}}
+          <br>
+          <!--<a id="terms" href="">Terms and Conditions</a>-->
+          <a [routerLink]="'/termsandcondition'">Terms and Conditions</a>
+        </div>
+        <div id="review-details">
+          <app-product-review></app-product-review>
+        </div>
+      </div>
+     </div>
+    </div>
+  </div>
+</section>

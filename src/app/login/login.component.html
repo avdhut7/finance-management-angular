@@ -1,0 +1,38 @@
+<div class="container-fluid" id = "n1">
+    <p id="login-head">Login</p> 
+    <form class="form-horizontal" id="login-form" #login="ngForm" (ngSubmit)="loginCheck(login)">
+        <table>
+            <tr>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr>
+                <td >Username:</td>
+                <td><input type="text"name="t1" [(ngModel)]=login.username required #t1="ngModel" class="form-control"/><span id="validation" *ngIf="t1.touched && !t1.valid">Please enter your username</span><br></td>
+            </tr>
+            <tr>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td><input type ="password" name="t4" [(ngModel)]=login.password required #t4="ngModel" class="form-control"/><span id="validation" *ngIf="t4.touched && !t4.valid">Please enter your password</span></td>
+            </tr>
+        </table><br><br>
+             
+            <button type ="submit" id="send" class="btn btn-success btn-lg" [disabled]="!login.valid"  >Login</button> <button id="forgot" type="button" class="btn btn-link btn-sm" id ="forgot-password"> <a [routerLink]="'/forgotpassword'">forgot password?</a></button>
+                <br>
+    </form>
+    <div>
+        <button type="button" class="btn btn-link" id="admin-login"><a [routerLink]="'/adminlogin'">Login as admin</a></button>
+        <br><br>
+        <h6>{{message}}</h6>
+    </div>
+</div>
+        
+
+             
+
+
+
+

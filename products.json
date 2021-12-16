@@ -1,0 +1,37 @@
+[
+    [
+        "C:/images/tv.jpg",
+        "Sony TV",
+        "108 cm (43) KD-43X8000G X80G. LED | 4K Ultra HD | High Dynamic Range (HDR) | Smart TV (Android TV™)",
+        75000.0,
+        9
+    ],
+    [
+        "C:/images/laptop.jpg",
+        "HP NoteBook",
+        "Display. Size. 15.60-inch.\nProcessor. Processor. Intel Core i5 8250U\nMemory RAM 8GB.",
+        50000.0,
+        6
+    ],
+    [
+        "C:/images/note20.jpg",
+        "Samsung Note 20",
+        "Dimensions 161.6 x 75.2 x 8.3 mm\nWeight 192 g\nOS Android 10,\nChipset Exynos 990 ",
+        90000.0,
+        12
+    ],
+    [
+        "C:/images/fridge.jpg",
+        "Samsung Refrigerator",
+        "Refrigerator has Water Dispenser, Ice Dispenser other features, Double Door type, Inverter Compressor Star energy rating, 253 Litres capacity.",
+        25000.0,
+        3
+    ],
+    [
+        "C:/ddimages/ipad.jpg",
+        "Apple Ipad mini 5",
+        "PROCESSOR: Apple A12 Bionic APL1W81.\nRAM: 2 GB.\nSTORAGE: 64 GB, 256 GB.\nDISPLAY: 7.9 in, IPS, 2048 x 1536 pixels, 24 bit.",
+        34000.0,
+        5
+    ]
+]

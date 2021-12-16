@@ -1,0 +1,59 @@
+ #product-image{
+    width: 70%;
+    /* height:50%; */
+    /* margin-left: 80px; */
+}
+/*#product-details{
+    float: right;
+    margin-top: 30px;
+}
+#heading{
+   text-align: center;
+   text-decoration: underline;
+}
+#name-label{
+    text-decoration: solid;
+    font-size: 20px;
+}
+#details-label{
+    text-decoration: solid;
+    font-size: 20px;
+}
+#emi{
+    text-decoration: solid;
+    font-size: 20px;
+    color: red;
+}
+#tenure-period{
+    width: 100px;
+    height:40px;
+    border: 1px solid black;
+    font-size: 25px;
+    font-weight: bolder;
+}
+#btn{
+    font-size: 20px;
+    font-weight: bolder;
+}*/
+#terms{
+    font-size: 20px;
+    font-weight: bolder;
+    margin-left: 30px;
+    text-decoration: underline;
+} 
+#details-card{
+   /* margin-right: 20px; */
+   margin-top: 15px;
+}
+.badge{
+    border-radius: 2px;
+}
+#buy-now-button{
+    margin-left: 30px;
+}
+#review-details{
+    margin-left: 30px;
+}
+#details-badge{
+    display: inline-block;
+}

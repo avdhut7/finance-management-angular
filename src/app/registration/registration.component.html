@@ -1,0 +1,90 @@
+<div class="container-fluid" id ="reg-form">
+   <p id="reg-head"> Registration Form</p>
+    <form class="form-horizontal" #user="ngForm"  (ngSubmit)= registerUser(user)>
+   
+        
+    <div id ="form-details">
+        <div  class="form-group">
+            <label>Name:</label>
+            <input  type="text" placeholder="Enter name" name="name" [(ngModel)]="user.name" required #name="ngModel"><br>
+            <span id="validation" *ngIf="name.touched && !name.valid">This is a required field.</span><br>
+        </div>
+        
+        <div  class="form-group">
+            <label>Date of Birth:</label>
+            <input  type="date" name="dateOfBirth" [(ngModel)]="user.dateOfBirth" required #dateOfBirth="ngModel"><br>
+            <span id="validation" *ngIf="dateOfBirth.touched && !dateOfBirth.valid">This is a required field.</span><br>
+        </div>
+
+        <div  class="form-group">
+            <label>Phone Number:</label>
+            <input  type="number" placeholder="Enter phone number" name="phoneNo" [(ngModel)]="user.phoneNo" required maxlength="10" minlength="9" #phoneNo="ngModel"><br>
+            <span id="validation" *ngIf="phoneNo.touched && !phoneNo.valid">This is a required field.</span><br>
+        </div> 
+            
+        <div  class="form-group">
+            <label>Username:</label>
+            <input type="text" placeholder="Enter username" name="username"[(ngModel)]="user.username" required maxlength="18" minlength="4" #username="ngModel" ><br>
+            <span id="validation" *ngIf="username.touched && !username.valid">This is a required field.</span><br>
+        </div>
+
+        <div  class="form-group">
+            <label> Email Address:</label>
+            <input type="email" placeholder="Enter email" id="email" name="email" [(ngModel)]="user.email" required #email="ngModel" ><br>
+            <span id="validation" *ngIf="email.touched && !email.valid">This is a required field.</span><br>
+        </div>
+
+        <div  class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" placeholder="Enter password" name="password" id="psw"  [(ngModel)]="user.password" minlength="8" maxlength="20" required #password="ngModel"><br>
+            <span id="validation" *ngIf="password.touched && !password.valid">Password should be atleast 8 digits.</span><br>
+        </div>
+            <!-- <label for="psw-repeat">Confirm Password:</label> -->
+            <!-- <input type="password" placeholder="Confirm Password" name="psw-repeat" id="psw-repeat" required [(ngModel)]=user.userconfpass><br> -->
+            
+        <div  class="form-group">
+            <label>Address:</label>
+            <input  type="text" placeholder="Enter your Address" name="address" [(ngModel)]="user.address" minlength="4" required #address="ngModel" ><br>
+            <span id="validation" *ngIf="address.touched && !address.valid">This is a required field.</span><br>
+        </div>
+
+        <div  class="radio">
+            <label id="cardType">Card Type:</label>
+            <input  type="radio" id="gold" name ="cardtype" value ="gold" [(ngModel)]="user.cardType" required #cardType="ngModel">
+            <label for="gold">Gold</label><span *ngIf="cardType.touched && !cardType.valid">This is a required field.</span><br>
+            <!-- this is a comment -->
+            <input type ="radio" id ="platinum" name ="cardtype" value="platinum"[(ngModel)]="user.cardType">
+            <label for ="platinum">Platinum</label><br><br>
+        </div>
+
+        <div  class="form-group">
+            <label >Select Bank:</label>
+            <input type="text" placeholder="Enter Bank Name" name="bankName" [(ngModel)]="user.bankName" required #bankName="ngModel"><br>
+            <span id="validation" *ngIf="bankName.touched && !bankName.valid">This is a required field.</span><br>
+        </div> 
+
+        <div  class="form-group">
+            <label>Savings Account Number:</label>
+            <input type="number" placeholder="Enter Account Number" name="accountNo" [(ngModel)]="user.accountNo" required maxlength="16" #accountNo="ngModel"><br>
+            <span id="validation" *ngIf="accountNo.touched && !accountNo.valid">This is a required field.</span><br>
+        </div>
+
+        <div  class="form-group">
+            <label>IFSC Code:</label>
+            <input type="text" placeholder="Enter IFSC code" name="ifscCode" [(ngModel)]="user.ifscCode" required #ifscCode="ngModel"><br>
+            <span id="validation" *ngIf="ifscCode.touched && !ifscCode.valid">This is a required field.</span><br>
+        </div>
+            <!-- for the pending functionality -->   
+                <!-- <div id="card-status">
+                    <input type="=radio" id="card-status" name="card-status" value="pending" [(ngModel)]="user.cardStatus">
+                </div> -->
+
+             <button type="submit" id="register-button" class="btn btn-success btn-lg" [disabled]="!user.valid">Register</button>
+            
+        <h1>{{message}}</h1>
+    </div>       
+
+    </form>
+</div>
+
+

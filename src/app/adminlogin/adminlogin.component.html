@@ -1,0 +1,25 @@
+<div class="container" id = "n1">
+       <p id="admin-head">Admin Login</p>
+   <form class="form-horizontal" id="admin-login" #adminlogin="ngForm" (ngSubmit)="adminLoginCheck(adminlogin)">
+   <table>
+      <tr>
+          <th></th>
+          <th></th>
+      </tr>
+      <tr>
+          <td >Admin Username:</td>
+          <td><input type="text" name="t1" [(ngModel)]=adminlogin.username required #t1="ngModel"/><br><span id="validation" *ngIf="t1.touched && !t1.valid">Please enter your username</span><br></td>
+      </tr>
+      <tr>
+          <th></th>
+          <th></th>
+      </tr>
+      <tr>
+          <td>Admin Password:</td>
+          <td><input type ="password" name="t4" [(ngModel)]=adminlogin.password required #t4="ngModel"/><br><span id="validation" *ngIf="t4.touched && !t4.valid">Please enter your password</span></td>
+      </tr>
+  </table><br><br>
+    
+    <button type ="submit" class="btn btn-success btn-lg" id="admin-enter" >Login</button><br><br>
+   </form> 
+</div>

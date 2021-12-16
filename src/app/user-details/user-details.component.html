@@ -1,0 +1,142 @@
+<title>Admin Page</title>
+<section>
+    <div class="container-fluid">
+      <div class="row">
+          <div class="col-sm-12">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#welcome">DASHBOARD</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#user-details-table">USER DETAILS TABLE</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#product-details-table">PRODUCTS DETAILS TABLE</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#add-product-section">ADD PRODUCT SECTION</a>
+                </li>
+              </ul>
+          </div>
+
+          
+
+         <div class="col-sm-12 tab-content">
+
+            <div id="welcome" class="col-sm-12 tab-pane active">
+                <div class="jumbotron">
+                   <h1>Welcome to your Dashboard Admin!!!</h1>
+                </div>
+              </div>
+
+            <div class="col-sm-12 tab-pane fade" id="user-details-table">
+                <table  class="table table-light table-hover">
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Date of Birth</th>
+                        <th>Email Id</th>
+                        <th>Phone number</th>
+                        <th>Username</th>
+                        <th>Address</th>
+                        <th>Card Type</th>
+                        <th>Bank Name</th>
+                        <th>Account Number</th>
+                        <th>IFSC Code</th>
+                        <th>Status</th>
+                        <th>Activate</th>
+                    </tr>
+                    <tr *ngFor = "let user of users">
+                        <td>{{user.userId}}</td>
+                        <td>{{user.name}}</td>
+                        <td>{{user.dateOfBirth}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.phoneNo}}</td>
+                        <td>{{user.username}}</td>
+                        <td>{{user.address}}</td>
+                        <td><span class="badge badge-warning">{{user.cardType}}</span></td>
+                        <td>{{user.bankName}}</td>
+                        <td>{{user.accountNo}}</td>
+                        <td><span class="badge badge-primary">{{user.ifscCode}}</span></td>
+                        <td>{{user.userStatus}}</td>
+                        <td><button (click) = "activateUser(user)" class="btn btn-success" >Activate</button></td>  
+                        <!--<td><button (click) = "deleteUser(user)" class="btn btn-danger">Delete</button></td> -->
+                    </tr>
+                </table>
+                <div class="alert alert-success">
+                    <h6>{{message}}</h6>
+                </div>
+             </div>
+    
+
+             <div class="col-sm-12 tab-pane fade" id="product-details-table">
+                <table [formGroup]="addForm" class="table table-light table-hover">
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Product Details</th>
+                        <th>Product Price</th>
+                        <th>Vendor</th>
+                        <th>Quantity</th>
+                        <th>MAX EMI Tenure</th>
+                        <th>Edit</th>
+                        <th>Delete</th> 
+                    </tr>
+                    <tr *ngFor = "let product of productlist">
+                        <td> {{product.productId}}</td>
+                        <td #topicName contenteditable (input)="product.productName=topicName.innerText">{{product.productName}}</td>
+                        <td #topicDetails contenteditable (input)="product.productDetails=topicDetails.innerText">{{product.productDetails}}</td>
+                        <td #topicPrice contenteditable (input)="product.productPrice=topicPrice.innerText">{{product.productPrice}}</td>
+                        <td #topicVendor contenteditable (input)="product.vendor=topicVendor.innerText">{{product.vendor}}</td>
+                        <td #topicQuantity contenteditable (input)="product.quantity=topicQuantity.innerText"><span class="badge badge-info">{{product.quantity}}</span></td>
+                        <td #topicTenure contenteditable (input)="product.maxTenure=topicTenure.innerText"><span class="badge badge-warning">{{product.maxTenure}}</span></td>
+                        <td><button class="btn btn-primary"  (click) = "editProduct(product)" >Edit</button></td>  
+                        <td><button class="btn btn-danger"  (click) = "deleteProduct(product)">Delete</button></td> 
+                    </tr>   
+                </table>
+                <div class="alert alert-success">
+                    <h6>{{message1}}</h6>
+                </div>
+             </div>
+
+             <div class="col-sm-12 tab-pane fade" id="add-product-section">
+                <form #product="ngForm" (ngSubmit)= "saveProduct(product)">
+                    <table class="table table-light table-hover">
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Product Details</th>
+                            <th>Product Price</th>
+                            <th>Vendor</th>
+                            <th>Quantity</th>
+                            <th>MAX EMI Tenure</th>
+                            <th>Save</th>
+                            <th>Remove</th>
+                        </tr>
+                        <tr *ngFor="let row of addForm.get('rows')?.controls;let index = index;">
+                            <td>ID</td>
+                            
+                                <td><input name="productName" [(ngModel)]="product.productName" required #productName="ngModel"></td>
+                                <td><input name="productDetails" [(ngModel)]="product.productDetails" required #productDetails="ngModel"></td>
+                                <td><input name="productPrice" [(ngModel)]="product.productPrice" required #productPrice="ngModel"></td>
+                                <td><input name="vendor" [(ngModel)]="product.vendor" required #vendor="ngModel"></td>
+                                <td><input name="quantity" [(ngModel)]="product.quantity" required #quantity="ngModel"></td>
+                                <td><input name="maxTenure" [(ngModel)]="product.maxTenure" required #maxTenure="ngModel"></td>
+                                <td><button type = "submit" class="btn btn-success" >ADD</button></td>  
+                                <td><button (click)="onRemoveRow(index)" class="btn btn-danger">Remove</button></td>
+                        </tr>
+                    </table>
+                </form>
+                <button (click)="onAddRow()" class="btn btn-primary">Add Product</button>
+                <br>
+                  <div class="alert alert-success">
+                    <h6>{{message2}}</h6>
+                  </div>
+             </div>
+         </div>
+      </div>
+    </div>
+</section>
+
+
+

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <div>
+    <a [routerLink]="'/dashboard'">Back to Dashboard</a>
+    </div>
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="jumbotron text-align" >
+  <h1 style="background-color:lightsteelblue; text-align: center;">SHOPPING</h1>
+  <marquee direction="right" height="100px" scrollamount="12">Get All Products at Zero Down Payment EMI</marquee></div>
+  
+<div class="card">
+ 
+   
+    
+      <tr *ngFor="let product of productlist">
+       
+        <div class="card-body">
+         
+        <div style="background-color:lightsteelblue;" class="jumbotron " *ngIf = "product.quantity ===1">
+          <h3 style="background-color: lightsteelblue;" class="nav-link" [routerLink]="'/product-info'" routerLinkActive="active" (click) = "updateSessionstorage(product.productId)">{{ product.productName }}</h3>
+          <td> <img src={{product.productImage}} height="200" width="250"></td>
+          <div class="card-body" style="color:midnightblue; "><th>Total price- Rs. {{ product.productPrice }}</th> </div>
+          <div class="card-body" style="color: midnightblue;" ><th> Model- {{ product.vendor }}</th></div>
+       <div class="card-footer"><th style="color:orangered;">Only One available in stock. HURRY UP !!!! </th> </div>   
+         
+        </div>
+        
+        <div style="background-color:lightsteelblue;"class="jumbotron" *ngIf = "product.quantity >=2">
+          <h3 style="background-color: lightsteelblue;" class="nav-link" [routerLink]="'/product-info'" routerLinkActive="active" (click) = "updateSessionstorage(product.productId)">{{ product.productName }}</h3>
+          <td><img src={{product.productImage}} height="200" width="250"></td>
+          <div class=card-body style="color:midnightblue; "><th>Total Price- Rs. {{ product.productPrice }}</th></div>
+        <div class="card-body" style="color: midnightblue;" ><th>Model-{{ product.vendor }}</th></div>
+        <div class="card-footer"><th style="color:darkgreen;" >Available!! </th></div>
+        
+      </div>
+      <!-- <div style="background-color:lightsteelblue;"class="jumbotron " *ngIf = "product.quantity >=2 && product.productId==3">
+        <h3 style="background-color: lightsteelblue;" class="nav-link" [routerLink]="'/product-info'" routerLinkActive="active" (click) = "updateSessionstorage(product.productId)">{{ product.productName }}</h3>
+        <td><img src={{product.productImage}} height="100" width="250"></td>
+       <div class="card-body"><th style="color:midnightblue;">Total Price-{{ product.productPrice }}</th></div> 
+       <div class="card-body"><th style="color:midnightblue;" >Model-{{ product.vendor }}</th></div>
+       <div class="card-footer"><th style="color:darkgreen;">Available!! </th></div>
+        
+      </div>
+      <div style="background-color:lightsteelblue;"class="jumbotron" *ngIf = "product.productId==4">
+        
+        <h3 style="background-color: lightsteelblue;" class="nav-link" [routerLink]="'/product-info'" routerLinkActive="active" (click) = "updateSessionstorage(product.productId)">{{ product.productName }}</h3>
+        <td><img src={{product.productImage}} height="100" width="250"></td>
+        <div class="card-body"><th style="color: midnightblue;">Total Price-{{product.productPrice}}</th></div>
+        <div class="card-body"><th style="color:midnightblue;" >Model-{{ product.vendor }}</th></div>
+       <div class="card-footer"> <th style="color:darkgreen;">Available!! </th></div>
+       
+      </div> -->
+      <!-- <div style=style="background-color:lightsteelblue;" class="jumbotron text-center" *ngIf = "product.quantity >=2 && product.productId == 4">
+        <th style="color:midnightblue;">{{ product.productPrice }}</th>
+        <th style="color:midnightblue;" >{{ product.vendor }}</th>
+        <th style="color: darkgreen;"> Available!! </th>
+         <td><img src="https://image-us.samsung.com/SamsungUS/home/home-appliances/refrigerators/3-door-french-door/pdp/rf27t5501sr-aa/RF27T5501SR_01_Silver_Scom.jpg?$product-details-jpg$" height="100" width="250"></td> -->
+     
+
+      <div style="background-color:lightsteelblue;" class="jumbotron " *ngIf = "!product.quantity">
+        <h3 style="background-color: lightsteelblue;" class="nav-link" [routerLink]="'/product-info'" routerLinkActive="active" (click) = "updateSessionstorage(product.productId)">{{ product.productName }}</h3>
+        <td><img src={{product.productImage}} height="200" width="250"></td>
+        
+       <div class="card-body"><th style="color:midnightblue;">Total Price- Rs. {{ product.productPrice }}</th></div> 
+        <div class="card-body"><th style="color:midnightblue;" >Model-{{ product.vendor }}</th></div>
+        <div class="card-footer"><th style="color: red;">Not In Stock</th></div>
+      </div>
+      
+      
+   
+        <!-- <td img src="{{product. productImage}}"></td> -->
+        <!-- <div *ngIf = "product.productId==2">
+          <td> <img src="https://images-na.ssl-images-amazon.com/images/I/71VC9cPNy6L._AC_SL1080_.jpg" height="100" width="150"></td>
+        </div> -->
+        <!-- <div *ngIf = "product.productId==1">
+          <td><img src="https://h20386.www2.hp.com/AustraliaStore/Html/Merch/Images/c05474186_1750x1285.jpg" height="100" width="150"></td>
+        </div> -->
+        <!-- <div *ngIf = "product.productId==3">
+          <td><img src="" height="100" width="150"></td>
+        </div> -->
+   
+      
+    
+ 
+</div>
+</tr>
+</div>
+
+
+
+</body>
+</html>

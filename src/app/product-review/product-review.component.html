@@ -1,0 +1,50 @@
+<!-- <h2 id="review-head">Reviews:</h2>
+<div id="review">
+    <ol>
+        <li *ngFor="let productreview of productReview;let i = index" [attr.data-index]="i">
+            {{productreview.registration.name}}   :  {{productreview.review}}  
+            Rating is:{{productreview.rating}}
+        </li>
+    </ol>
+</div>
+<br>
+<br>
+<div>
+    <form (ngSubmit)="addProductReview()">
+        <textarea name="" id="" cols="30" rows="5" placeholder="Add Your Review" name="t1"  [(ngModel)]=productReview2.review></textarea>
+        <br>
+        <br>
+        <input type="number" placeholder="Rate Us"  name="t2"   [(ngModel)]=productReview2.rating>
+        <br>
+        <br>
+        <input type="submit" value="Add Review" (click)= "fetchReview()"> &nbsp; &nbsp; {{message}}
+    </form>
+</div> -->
+<section>
+    <div class="container-fluid">
+     <div class="row">
+       <div class="col-sm-8" id="review">
+            <h6 id="review-head">Reviews:</h6>
+            <div id="jumbo-review" class="jumbotron">
+                <ol>
+                    <li *ngFor="let productreview of productReview;let i = index" [attr.data-index]="i">
+                        <h6>{{productreview.registration.name}}   :  {{productreview.review}} </h6> 
+                        <h6>Rating is:{{productreview.rating}}</h6>
+                    </li>
+                </ol>
+            </div>
+            <div id="add-review">
+                <form (ngSubmit)="addProductReview()">
+                    <textarea name="" id="" cols="30" rows="5" placeholder="Add Your Review" name="t1"  [(ngModel)]=productReview2.review></textarea>
+                    <br>
+                    <br>
+                    <input type="number" placeholder="Rate Us"  name="t2"   [(ngModel)]=productReview2.rating>
+                    <br>
+                    <br>
+                    <input class="btn btn-primary" type="submit" value="Add Review" (click)= "fetchReview()"> &nbsp; &nbsp; {{message}}
+                </form>
+            </div>
+      </div>
+     </div>
+    </div>
+</section>

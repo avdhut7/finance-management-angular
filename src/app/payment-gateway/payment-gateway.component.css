@@ -1,0 +1,28 @@
+/* .pay-mod{
+    background-color: #f0f097;
+} */
+#pay-reg{
+    background-color: #f0f0f0;
+    padding: 8px;
+    
+
+}
+.card {
+    margin-left: 40%;
+
+    
+}
+#pay-btn{
+    margin-left: 160px;
+    margin-bottom:20px;
+}
+#t1{
+    margin-left: 160px;
+}
+#conc{
+    margin-left: 5px;
+}
+#pg-ttl{
+    margin-left: 910px;
+    /* text-align: center; */
+}

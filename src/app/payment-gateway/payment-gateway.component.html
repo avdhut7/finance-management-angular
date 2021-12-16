@@ -1,0 +1,68 @@
+<div>
+  <a [routerLink]="'/product-info'">Back</a>
+</div> <br> <br>
+<div class="container-fluid" id="payment-gt">
+  <div class="row">
+    <div class="pay-mod">
+      <h3 id="pg-ttl" style="text-align: center;"></h3>
+      <div class="card" id="comp-form" >
+        <!-- Default payment options -->
+                  <!-- Default checked radio -->
+                <div id="pay-reg">
+                  <p><i>All transactions are secure and encrypted</i></p>
+                  <p><b>EMI payment options</b></p>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked/>
+                    <label class="form-check-label" for="flexRadioDefault2">Credit Card</label><br><br>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
+                    <label class="form-check-label" for="flexRadioDefault1">Debit Card</label><br><br>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
+                    <label class="form-check-label" for="flexRadioDefault1">Paypal</label><br><br>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
+                    <label class="form-check-label" for="flexRadioDefault1">BHIM UPI/Gpay/AmazonPay</label><br><br>
+                  </div><br><br>
+                  <!-- Default radio -->
+                  <!-- Default checked radio ADDRESS -->
+                  
+                  <p><b>Billing Address:</b></p>
+                  <p>Select the address that matches your card or payment method</p>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioCheckedDisabled" checked disabled/>
+                    <label class="form-check-label" for="flexRadioCheckedDisabled">Same as Registration address.</label><br><br>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDisabled" id="flexRadioDisabled" disabled/>
+                    <label class="form-check-label" for="flexRadioDisabled">Address different than registration address.</label>
+                  </div><br><br>
+                </div>  
+        <!-- <h2>PROCEED TO PAY</h2> -->
+        <!-- </div>
+        <div class="jumbotron text-center" style="background-color:lightsteelblue;"> -->
+        <h6 id="conc">Total Amount : {{product.productPrice}}</h6>
+        <h6 id="conc">Selected Tenure : {{tenure}} months</h6>
+         <h6>Amount to be paid per installment : {{product.productPrice/tenure}}</h6> 
+        <form (ngSubmit) = "buyNow()">
+            <button type="submit" id="pay-btn" class="btn btn-success" >Confirm Order</button> <br> <h6>{{message}} </h6>
+        </form>
+      </div>
+          
+      <!-- <h3>Amount to be paid per installment : {{product.productPrice/tenure}}</h3>  -->
+    </div>
+    </div>
+</div>  
+
+
+<!-- <h3>Selected Tenure : {{tenure}} months</h3>
+<h3>Amount to be paid per installment : {{product.productPrice/tenure}}</h3> -->
+<!-- <form (ngSubmit) = "buyNow()">
+  <button type="submit" >CONFIRM PAYMENT</button>  &nbsp; &nbsp; {{message}} &nbsp; &nbsp; 
+</form>
+</div> --> 
+<!-- <h3>Amount to be paid per installment : {{product.productPrice/tenure}}</h3>  -->
+
